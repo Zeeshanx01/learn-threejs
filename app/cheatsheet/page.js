@@ -73,16 +73,32 @@ export default function Cheatsheet() {
         { code: 'requestAnimationFrame(animate)', desc: 'Creates a loop that updates and re-renders the scene each frame.' },
       ],
     },
+    {
+      category: 'Colors Palette',
+      items: [
+        { code: '0xffffff', desc: 'Pure white color (hexadecimal).' },
+        { code: '0x000000', desc: 'Pure black color (hexadecimal).' },
+        { code: '0xff0000', desc: 'Red color (hexadecimal).' },
+        { code: '0x00ff00', desc: 'Green color (hexadecimal).' },
+        { code: '0x0000ff', desc: 'Blue color (hexadecimal).' },
+        { code: '0xffff00', desc: 'Yellow color (hexadecimal).' },
+        { code: '0xff00ff', desc: 'Magenta color (hexadecimal).' },
+        { code: '0x00ffff', desc: 'Cyan color (hexadecimal).' },
+        { code: '"white"', desc: 'CSS color names can be used as strings.' },
+        { code: '"blue"', desc: 'CSS named colors also work for materials and lights.' },
+        { code: 'new THREE.Color("hsl(200, 100%, 50%)")', desc: 'Defines color using HSL values.' },
+        { code: 'new THREE.Color("rgb(255, 100, 50)")', desc: 'Defines color using RGB values.' },
+      ],
+    },
   ];
 
-  // Highlight matched text
+  // Highlight match
   const highlightMatch = (text) => {
     if (!searchTerm) return text;
     const regex = new RegExp(`(${searchTerm})`, 'gi');
     return text.replace(regex, `<mark class="bg-yellow-500 text-black rounded px-1">$1</mark>`);
   };
 
-  // Filter data based on search term
   const filteredData = cheatsheetData.map(section => ({
     ...section,
     items: section.items.filter(item =>
@@ -92,7 +108,6 @@ export default function Cheatsheet() {
     ),
   })).filter(section => section.items.length > 0);
 
-  // Copy code to clipboard
   const copyToClipboard = (code) => {
     navigator.clipboard.writeText(code);
     setCopiedCode(code);
@@ -102,12 +117,12 @@ export default function Cheatsheet() {
   return (
     <div className="min-h-screen bg-gray-900 text-white sm:p-10 px-2 py-10">
       <h1 className="text-4xl font-bold mb-6">📜 Three.js Cheatsheet</h1>
-      <p className="text-lg text-gray-400 mb-4">Quick reference for essential Three.js classes, methods, and their purpose.</p>
+      <p className="text-lg text-gray-400 mb-4">Quick reference for essential Three.js classes, methods, and colors.</p>
 
-      {/* Search Bar */}
+      {/* Search */}
       <input
         type="text"
-        placeholder="🔍 Search Three.js methods..."
+        placeholder="🔍 Search Three.js methods or colors..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className="w-full mb-8 px-4 py-3 rounded-lg text-white/70 bg-gray-800 outline-none focus:ring-2 focus:ring-blue-500"
@@ -124,7 +139,6 @@ export default function Cheatsheet() {
               <div className="space-y-3">
                 {section.items.map((item, i) => (
                   <div key={i} className="bg-gray-900 rounded-lg sm:p-3 p-2 border border-gray-700 hover:border-blue-400 transition relative">
-                    {/* Code with copy button */}
                     <div className="flex justify-between items-start">
                       <code
                         className="block text-green-400 font-mono text-lg mb-1 break-all"
@@ -132,7 +146,7 @@ export default function Cheatsheet() {
                       />
                       <button
                         onClick={() => copyToClipboard(item.code)}
-                        className="ml-1 text-[0.5rem] bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-white transition"
+                        className="ml-1 text-[0.6rem] bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-white transition"
                       >
                         {copiedCode === item.code ? 'Copied' : 'Copy'}
                       </button>
@@ -153,4 +167,3 @@ export default function Cheatsheet() {
     </div>
   );
 }
-

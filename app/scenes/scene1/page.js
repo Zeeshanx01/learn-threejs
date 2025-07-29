@@ -22,7 +22,10 @@ export default function Scene1() {
       0.1,                                // Objects closer than this are not visible
       1000                                // Objects farther than this are not visible
     );
-    camera.position.z = 5; // Move the camera 5 units away from center
+    camera.position.z = 25; // Move the camera 5 units away from center
+    camera.position.y = 10; // Move the camera up a bit
+    camera.position.x = -20; // Center the camera horizontally
+    camera.lookAt(0, 0, 0); // Look at the center of the scene (0, 0, 0)
 
 
 
@@ -123,6 +126,40 @@ export default function Scene1() {
     plane2.position.x = 0
     plane2.position.z = -5; // Move it to the right
     scene.add(plane2);
+
+
+
+
+
+
+
+
+       // Ground plane
+    const road = new THREE.Mesh(
+      new THREE.BoxGeometry(10, 0.2, 60),
+      new THREE.MeshStandardMaterial({ color: 0x888888, side: THREE.DoubleSide })
+    );
+
+    road.position.x = 10;
+    road.position.y = -1.5;
+
+    scene.add(road);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
