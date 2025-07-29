@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-export default function scene1() {
+export default function Scene1() {
 
 
   useEffect(() => {
