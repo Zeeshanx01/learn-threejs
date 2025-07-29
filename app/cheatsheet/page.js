@@ -1,6 +1,9 @@
 'use client';
+import { useState } from 'react';
 
 export default function Cheatsheet() {
+  const [searchTerm, setSearchTerm] = useState('');
+
   const cheatsheetData = [
     {
       category: 'Core',
@@ -71,27 +74,50 @@ export default function Cheatsheet() {
     },
   ];
 
+  // Filter data based on search term
+  const filteredData = cheatsheetData.map(section => ({
+    ...section,
+    items: section.items.filter(item =>
+      item.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      section.category.toLowerCase().includes(searchTerm.toLowerCase())
+    ),
+  })).filter(section => section.items.length > 0);
+
   return (
     <div className="min-h-screen bg-gray-900 text-white sm:p-10 px-2 py-10">
       <h1 className="text-4xl font-bold mb-6">📜 Three.js Cheatsheet</h1>
-      <p className="text-lg text-gray-400 mb-8">Quick reference for essential Three.js classes, methods, and their purpose.</p>
+      <p className="text-lg text-gray-400 mb-4">Quick reference for essential Three.js classes, methods, and their purpose.</p>
+
+      {/* Search Bar */}
+      <input
+        type="text"
+        placeholder="🔍 Search Three.js methods..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full mb-8 px-4 py-3 rounded-lg text-white/70 bg-gray-800 outline-none focus:ring-2 focus:ring-blue-500"
+      />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {cheatsheetData.map((section, idx) => (
-          <div key={idx} className="bg-gray-800 sm:p-5 p-2 rounded-xl shadow-md border border-gray-700">
-            <h2 className="text-2xl font-semibold mb-3 text-blue-400">{section.category}</h2>
-            <div className="space-y-3">
-              {section.items.map((item, i) => (
-                <div key={i} className="bg-gray-900 rounded-lg sm:p-3 p-1 border border-gray-700 hover:border-blue-400 transition">
-                  <code className="block text-green-400 font-mono text-lg mb-1">
-                    {item.code}
-                  </code>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
-                </div>
-              ))}
+        {filteredData.length > 0 ? (
+          filteredData.map((section, idx) => (
+            <div key={idx} className="bg-gray-800 sm:p-5 p-2 rounded-xl shadow-md border border-gray-700">
+              <h2 className="text-2xl font-semibold mb-3 text-blue-400">{section.category}</h2>
+              <div className="space-y-3">
+                {section.items.map((item, i) => (
+                  <div key={i} className="bg-gray-900 rounded-lg sm:p-3 p-1 border border-gray-700 hover:border-blue-400 transition">
+                    <code className="block text-green-400 font-mono text-lg mb-1">
+                      {item.code}
+                    </code>
+                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="text-gray-400 text-center col-span-2">No results found.</p>
+        )}
       </div>
     </div>
   );
