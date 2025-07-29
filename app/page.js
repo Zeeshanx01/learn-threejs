@@ -2,11 +2,13 @@
 import Link from 'next/link';
 
 export default function Home() {
-  const scenes = [
-    { id: 1, name: 'Scene 1 - Objects Playground', path: '/scene1' },
-    { id: 2, name: 'Scene 2 - Galaxy of Stars', path: '/scene2' },
-  ];
 
+  // 🎬 Scenes list
+  const scenes = [
+    { id: 1, name: 'Scene 1 - Objects Playground', path: '/scenes/scene1' },
+    { id: 2, name: 'Scene 2 - Galaxy of Stars', path: '/scenes/scene2' },
+    { id: 3, name: 'Scene 3 - Auto Camera Orbit', path: '/scenes/scene3' },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-10">
@@ -15,6 +17,23 @@ export default function Home() {
         Explore different 3D scenes built with Three.js
       </p>
 
+      {/* =====================
+          📜 Cheatsheet Section
+      ====================== */}
+      <div className="w-full max-w-xl mb-10">
+        <Link
+          href="/cheatsheet"
+          className="block p-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 cursor-pointer text-center border border-blue-400"
+        >
+          <h2 className="text-2xl font-semibold mb-2">📜 Three.js Cheatsheet</h2>
+          <p className="text-gray-100">Quick reference for essential Three.js classes and methods</p>
+        </Link>
+      </div>
+
+      {/* =====================
+          🎬 Scenes Section
+      ====================== */}
+      <h2 className="text-3xl font-bold mb-5">🎬 Available Scenes</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-xl">
         {scenes.map((scene) => (
           <Link

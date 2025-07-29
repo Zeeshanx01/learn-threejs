@@ -120,14 +120,27 @@ export default function Scene1() {
     function animate() {
       requestAnimationFrame(animate);
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      // cube.position.y = Math.sin(Date.now() * 0.002) * 2; // Moves up/down
+      // cube.rotation.y += 0.01; // Spins continuously
+      cube.scale.set(
+        1 + Math.sin(Date.now() * 0.003) * 0.2,
+        1 + Math.sin(Date.now() * 0.003) * 0.2,
+        1 + Math.sin(Date.now() * 0.003) * 0.2
+      ); // "breathing" effect
+
+
 
       sphere.rotation.y += 0.02;
+
+      torus.rotation.x += 0.01;
+      torus.position.y = Math.sin(Date.now() * 0.001) * 0.5; // Bounce effect
+
 
       controls.update(); // Required for damping effect
       renderer.render(scene, camera);
     }
+
+
     animate();
 
     // Cleanup
