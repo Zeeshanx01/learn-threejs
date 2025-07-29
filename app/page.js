@@ -4,11 +4,15 @@ import Link from 'next/link';
 export default function Home() {
 
   // 🎬 Scenes list
-  const scenes = [
-    { id: 1, name: 'Scene 1 - Objects Playground', path: '/scenes/scene1' },
-    { id: 2, name: 'Scene 2 - Galaxy of Stars', path: '/scenes/scene2' },
-    { id: 3, name: 'Scene 3 - Auto Camera Orbit', path: '/scenes/scene3' },
-  ];
+const scenes = [
+  { id: 1, name: 'Scene 1 - Objects Playground', path: '/scenes/scene1' },
+  { id: 2, name: 'Scene 2 - Galaxy of Stars', path: '/scenes/scene2' },
+  { id: 3, name: 'Scene 3 - Auto Camera Orbit', path: '/scenes/scene3' },
+  { id: 4, name: 'Scene 4 - Two Scenes Side by Side', path: '/scenes/scene4' },
+  { id: 5, name: 'Scene 5 - Split Viewport (Single Canvas)', path: '/scenes/scene5' },
+];
+
+
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-10">

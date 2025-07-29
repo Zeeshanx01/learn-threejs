@@ -87,25 +87,57 @@ export default function Scene1() {
 
 
 
-// Cone
+    // Cone
     const coneGeometry = new THREE.ConeGeometry(0.5, 1.5, 32);
     const coneMaterial = new THREE.MeshStandardMaterial({ color: 0xffff00 });
     const cone = new THREE.Mesh(coneGeometry, coneMaterial);
-    cone.position.set(0, 1.5, 0);
+    cone.position.set(0.5, 1.5, -4);
+    scene.add(cone);
 
-    
+    // Cylinder
+    const cylinderGeometry = new THREE.CylinderGeometry(0.5, 0.5, 1.5, 32);
+    const cylinderMaterial = new THREE.MeshStandardMaterial({ color: 0xff00ff });
+    const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    cylinder.position.set(-1.5, 0.75, -4);
+    scene.add(cylinder);
+
 
     // Ground plane
-    const planeGeometry = new THREE.PlaneGeometry(10, 10);
-    const planeMaterial = new THREE.MeshStandardMaterial({ color: 0x888888, side: THREE.DoubleSide });
-    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.rotation.x = Math.PI / 2; // Rotate flat
+    const plane = new THREE.Mesh(
+      new THREE.PlaneGeometry(10, 10),
+      new THREE.MeshStandardMaterial({ color: 0x888888, side: THREE.DoubleSide })
+    );
+    plane.rotation.x = Math.PI / 2;
     plane.position.y = -1.5;
     scene.add(plane);
 
 
 
 
+    // Ground plane2
+    const planeGeometry2 = new THREE.PlaneGeometry(10, 10);
+    const planeMaterial2 = new THREE.MeshStandardMaterial({ color: 'blue', side: THREE.DoubleSide });
+    const plane2 = new THREE.Mesh(planeGeometry2, planeMaterial2);
+    plane2.rotation.x = Math.PI / 1; // Rotate flat
+    plane2.position.y = 3.5;
+    plane2.position.x = 0
+    plane2.position.z = -5; // Move it to the right
+    scene.add(plane2);
+
+
+
+
+
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(100, 100),
+      new THREE.MeshStandardMaterial({ color: 'gray', side: THREE.DoubleSide })
+    );
+    ground.rotation.x = Math.PI / 2;
+
+    ground.position.x = 0;
+    ground.position.y = -3;
+    ground.position.z = 0;
+    scene.add(ground);
 
     // 5️⃣ Lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); // Soft light
