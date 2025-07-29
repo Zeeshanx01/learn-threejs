@@ -87,7 +87,13 @@ export default function Scene1() {
 
 
 
+// Cone
+    const coneGeometry = new THREE.ConeGeometry(0.5, 1.5, 32);
+    const coneMaterial = new THREE.MeshStandardMaterial({ color: 0xffff00 });
+    const cone = new THREE.Mesh(coneGeometry, coneMaterial);
+    cone.position.set(0, 1.5, 0);
 
+    
 
     // Ground plane
     const planeGeometry = new THREE.PlaneGeometry(10, 10);

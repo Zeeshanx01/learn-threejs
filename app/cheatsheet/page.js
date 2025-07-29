@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 export default function Cheatsheet() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [copiedCode, setCopiedCode] = useState('');
 
   const cheatsheetData = [
     {
@@ -74,6 +75,13 @@ export default function Cheatsheet() {
     },
   ];
 
+  // Highlight matched text
+  const highlightMatch = (text) => {
+    if (!searchTerm) return text;
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    return text.replace(regex, `<mark class="bg-yellow-500 text-black rounded px-1">$1</mark>`);
+  };
+
   // Filter data based on search term
   const filteredData = cheatsheetData.map(section => ({
     ...section,
@@ -83,6 +91,13 @@ export default function Cheatsheet() {
       section.category.toLowerCase().includes(searchTerm.toLowerCase())
     ),
   })).filter(section => section.items.length > 0);
+
+  // Copy code to clipboard
+  const copyToClipboard = (code) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCode(code);
+    setTimeout(() => setCopiedCode(''), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white sm:p-10 px-2 py-10">
@@ -102,14 +117,30 @@ export default function Cheatsheet() {
         {filteredData.length > 0 ? (
           filteredData.map((section, idx) => (
             <div key={idx} className="bg-gray-800 sm:p-5 p-2 rounded-xl shadow-md border border-gray-700">
-              <h2 className="text-2xl font-semibold mb-3 text-blue-400">{section.category}</h2>
+              <h2
+                className="text-2xl font-semibold mb-3 text-blue-400"
+                dangerouslySetInnerHTML={{ __html: highlightMatch(section.category) }}
+              />
               <div className="space-y-3">
                 {section.items.map((item, i) => (
-                  <div key={i} className="bg-gray-900 rounded-lg sm:p-3 p-1 border border-gray-700 hover:border-blue-400 transition">
-                    <code className="block text-green-400 font-mono text-lg mb-1">
-                      {item.code}
-                    </code>
-                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <div key={i} className="bg-gray-900 rounded-lg sm:p-3 p-2 border border-gray-700 hover:border-blue-400 transition relative">
+                    {/* Code with copy button */}
+                    <div className="flex justify-between items-start">
+                      <code
+                        className="block text-green-400 font-mono text-lg mb-1 break-all"
+                        dangerouslySetInnerHTML={{ __html: highlightMatch(item.code) }}
+                      />
+                      <button
+                        onClick={() => copyToClipboard(item.code)}
+                        className="ml-1 text-[0.5rem] bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-white transition"
+                      >
+                        {copiedCode === item.code ? 'Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <p
+                      className="text-gray-400 text-sm"
+                      dangerouslySetInnerHTML={{ __html: highlightMatch(item.desc) }}
+                    />
                   </div>
                 ))}
               </div>
@@ -122,3 +153,4 @@ export default function Cheatsheet() {
     </div>
   );
 }
+
