@@ -72,17 +72,17 @@ export default function Cheatsheet() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-10">
+    <div className="min-h-screen bg-gray-900 text-white sm:p-10 px-2 py-10">
       <h1 className="text-4xl font-bold mb-6">📜 Three.js Cheatsheet</h1>
       <p className="text-lg text-gray-400 mb-8">Quick reference for essential Three.js classes, methods, and their purpose.</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {cheatsheetData.map((section, idx) => (
-          <div key={idx} className="bg-gray-800 p-5 rounded-xl shadow-md border border-gray-700">
+          <div key={idx} className="bg-gray-800 sm:p-5 p-2 rounded-xl shadow-md border border-gray-700">
             <h2 className="text-2xl font-semibold mb-3 text-blue-400">{section.category}</h2>
             <div className="space-y-3">
               {section.items.map((item, i) => (
-                <div key={i} className="bg-gray-900 rounded-lg p-3 border border-gray-700 hover:border-blue-400 transition">
+                <div key={i} className="bg-gray-900 rounded-lg sm:p-3 p-1 border border-gray-700 hover:border-blue-400 transition">
                   <code className="block text-green-400 font-mono text-lg mb-1">
                     {item.code}
                   </code>
