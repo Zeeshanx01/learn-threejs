@@ -1,7 +1,8 @@
 'use client';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Html,Text3D } from '@react-three/drei';
+
 
 function SceneObjects() {
   // References for animation
@@ -31,6 +32,15 @@ function SceneObjects() {
 
   return (
     <>
+
+      {/* Ready-made camera controls */}
+      <OrbitControls />
+
+      {/* A mesh with HTML tooltip */}
+      <Html position={[-10, 4, 0]}>
+        <div className="bg-gray-500 w-fit text-black p-20 rounded">I'm in 3D!</div>
+      </Html>
+
       {/* Cube */}
       <mesh ref={cubeRef} position={[-2, 0, 0]}>
         <boxGeometry args={[1, 1, 1]} />

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 export default function Home() {
-  
+
 // 🎬 Scenes list
 const scenes = [
   { id: 1, name: 'Scene 1 - Objects Playground', path: '/scenes/scene1' },
@@ -10,7 +10,8 @@ const scenes = [
   { id: 3, name: 'Scene 3 - Auto Camera Orbit', path: '/scenes/scene3' },
   { id: 4, name: 'Scene 4 - Two Scenes Side by Side', path: '/scenes/scene4' },
   { id: 5, name: 'Scene 5 - Split Viewport (Single Canvas)', path: '/scenes/scene5' },
-  { id: 6, name: 'Scene 6 - Objects Playground (R3F)', path: '/scenes/scene6' }, // ✅ New Scene
+  { id: 6, name: 'Scene 6 - Objects Playground (R3F)', path: '/scenes/scene6' },
+  { id: 7, name: 'Scene 7 – Earth with Orbiting Moons', path: '/scenes/scene7' }, // ✅ Newly added
 ];
 
 
