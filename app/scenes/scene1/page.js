@@ -1,14 +1,18 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export default function Scene1() {
-
+  const mountRef = useRef(null);
+  const [reloadKey, setReloadKey] = useState(Date.now()); // unique key on load
 
   useEffect(() => {
 
-
+    // ✅ Clean previous canvas if exists
+    if (mountRef.current && mountRef.current.firstChild) {
+      mountRef.current.removeChild(mountRef.current.firstChild);
+    }
 
     // 1️⃣ Scene
     const scene = new THREE.Scene();
@@ -31,11 +35,11 @@ export default function Scene1() {
 
 
 
-
     // 3️⃣ Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    mountRef.current.appendChild(renderer.domElement);
+
 
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -108,7 +112,7 @@ export default function Scene1() {
     // Ground plane
     const plane = new THREE.Mesh(
       new THREE.PlaneGeometry(10, 10),
-      new THREE.MeshStandardMaterial({ color: 0x888888, side: THREE.DoubleSide })
+      new THREE.MeshStandardMaterial({ color: 'red', side: THREE.DoubleSide })
     );
     plane.rotation.x = Math.PI / 2;
     plane.position.y = -1.5;
@@ -119,7 +123,7 @@ export default function Scene1() {
 
     // Ground plane2
     const planeGeometry2 = new THREE.PlaneGeometry(10, 10);
-    const planeMaterial2 = new THREE.MeshStandardMaterial({ color: 'blue', side: THREE.DoubleSide });
+    const planeMaterial2 = new THREE.MeshStandardMaterial({ color: 'gray', side: THREE.DoubleSide });
     const plane2 = new THREE.Mesh(planeGeometry2, planeMaterial2);
     plane2.rotation.x = Math.PI / 1; // Rotate flat
     plane2.position.y = 3.5;
@@ -134,16 +138,92 @@ export default function Scene1() {
 
 
 
-       // Ground plane
+    // road plane
     const road = new THREE.Mesh(
-      new THREE.BoxGeometry(10, 0.2, 60),
-      new THREE.MeshStandardMaterial({ color: 0x888888, side: THREE.DoubleSide })
+      new THREE.BoxGeometry(20, 0.2, 120),
+      new THREE.MeshStandardMaterial({ color: 'gray', side: THREE.DoubleSide })
     );
 
-    road.position.x = 10;
+    road.position.x = 20;
     road.position.y = -1.5;
+    road.position.z = -20;
 
     scene.add(road);
+
+
+
+    // road plane
+    const road3 = new THREE.Mesh(
+      new THREE.BoxGeometry(20, 0.2, 120),
+      new THREE.MeshStandardMaterial({ color: 'gray', side: THREE.DoubleSide })
+    );
+
+    road3.position.x = 40.5;
+    road3.position.y = -1.5;
+    road3.position.z = -20;
+
+    scene.add(road3);
+
+
+
+
+    const strip = new THREE.Mesh(
+      new THREE.BoxGeometry(2, 0.4, 12),
+      new THREE.MeshStandardMaterial({ color: 'dark-grey', side: THREE.DoubleSide })
+    );
+
+    strip.position.x = 20;
+    strip.position.y = -1.5;
+    strip.position.z = -20;
+
+    scene.add(strip);
+
+
+
+
+
+
+
+
+    const road2 = new THREE.Mesh(
+      new THREE.BoxGeometry(120, 0.2, 20),
+      new THREE.MeshStandardMaterial({ color: 'gray', side: THREE.DoubleSide })
+    );
+
+    road2.position.x = -20;
+    road2.position.y = -1.5;
+    road2.position.z = -40;
+
+    scene.add(road2);
+
+
+
+
+
+    const road4 = new THREE.Mesh(
+      new THREE.BoxGeometry(120, 0.2, 20),
+      new THREE.MeshStandardMaterial({ color: 'red', side: THREE.DoubleSide })
+    );
+
+    road4.position.x = -60;
+    road4.position.y = -1.5;
+    road4.position.z = -40;
+
+    scene.add(road4);
+
+
+    const road5 = new THREE.Mesh(
+      new THREE.BoxGeometry(120, 0.2, 20),
+      new THREE.MeshStandardMaterial({ color: 'black', side: THREE.DoubleSide })
+    );
+
+    road5.position.x = 60;
+    road5.position.y = -1.5;
+    road5.position.z = -60;
+
+    scene.add(road5);
+
+
 
 
 
@@ -218,18 +298,29 @@ export default function Scene1() {
 
     animate();
 
-    // Cleanup
+
+
+    // ✅ Cleanup
     return () => {
+      window.removeEventListener('resize', handleResize);
       renderer.dispose();
-      document.body.removeChild(renderer.domElement);
+      if (mountRef.current?.contains(renderer.domElement)) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
     };
-
-  }, []);
-
+  }, [reloadKey]); // ✅ This makes the scene reload every time reloadKey changes
 
 
 
 
+  // ✅ Trigger remount on hot reload
+  if (import.meta?.hot) {
+    import.meta.hot.accept(() => {
+      setReloadKey(Date.now());
+    });
+  }
 
-  return null;
+
+
+  return <div ref={mountRef}></div>;
 }
