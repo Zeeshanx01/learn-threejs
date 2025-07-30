@@ -53,7 +53,15 @@ export default function Cheatsheet() {
         { code: '<mesh><sphereGeometry args={[0.5,32,32]} /><meshStandardMaterial color="blue" /></mesh>', desc: 'Creates a sphere mesh in R3F.' },
       ],
     },
-
+        {
+      category: 'Materials',
+      items: [
+        { code: 'THREE.MeshBasicMaterial({ color })', desc: 'Material that does not react to light.' },
+        { code: 'THREE.MeshStandardMaterial({ color, metalness, roughness })', desc: 'Physically-based material that reacts to lights realistically.' },
+        { code: 'THREE.MeshPhongMaterial({ color, shininess })', desc: 'Material with shiny highlights (specular reflection).' },
+        { code: 'THREE.MeshLambertMaterial({ color })', desc: 'Non-shiny, matte surface material that reacts to light.' },
+      ],
+    },
     {
       category: 'Lights (Three.js)',
       items: [
@@ -71,7 +79,20 @@ export default function Cheatsheet() {
         { code: '<pointLight position={[5,5,5]} />', desc: 'Point light emitting in all directions.' },
       ],
     },
-
+        {
+      category: 'Objects',
+      items: [
+        { code: 'THREE.Mesh(geometry, material)', desc: 'Combines geometry and material to create a visible 3D object.' },
+        { code: 'THREE.Group()', desc: 'Groups multiple meshes together to manipulate as one.' },
+      ],
+    },    
+    {
+      category: 'Helpers',
+      items: [
+        { code: 'THREE.AxesHelper(size)', desc: 'Displays X (red), Y (green), Z (blue) axes for reference.' },
+        { code: 'THREE.GridHelper(size, divisions)', desc: 'Creates a floor grid for positioning objects easily.' },
+      ],
+    },
     {
       category: 'Animation (Three.js)',
       items: [
@@ -99,21 +120,7 @@ export default function Cheatsheet() {
         { code: '<OrbitControls enableDamping />', desc: 'Adds orbit controls directly in R3F with smooth damping.' },
       ],
     },
-    {
-      category: 'Objects',
-      items: [
-        { code: 'THREE.Mesh(geometry, material)', desc: 'Combines geometry and material to create a visible 3D object.' },
-        { code: 'THREE.Group()', desc: 'Groups multiple meshes together to manipulate as one.' },
-      ],
-    },
-    {
-      category: 'Helpers',
-      items: [
-        { code: 'THREE.AxesHelper(size)', desc: 'Displays X (red), Y (green), Z (blue) axes for reference.' },
-        { code: 'THREE.GridHelper(size, divisions)', desc: 'Creates a floor grid for positioning objects easily.' },
-      ],
-    },
-    {
+        {
       category: 'Colors Palette',
       items: [
         { code: '0xffffff', desc: 'Pure white color (hexadecimal).' },
@@ -130,17 +137,6 @@ export default function Cheatsheet() {
         { code: 'new THREE.Color("rgb(255, 100, 50)")', desc: 'Defines color using RGB values.' },
       ],
     },
-    {
-      category: 'Materials',
-      items: [
-        { code: 'THREE.MeshBasicMaterial({ color })', desc: 'Material that does not react to light.' },
-        { code: 'THREE.MeshStandardMaterial({ color, metalness, roughness })', desc: 'Physically-based material that reacts to lights realistically.' },
-        { code: 'THREE.MeshPhongMaterial({ color, shininess })', desc: 'Material with shiny highlights (specular reflection).' },
-        { code: 'THREE.MeshLambertMaterial({ color })', desc: 'Non-shiny, matte surface material that reacts to light.' },
-      ],
-    },
-
-
   ];
 
   // Highlight search match
@@ -165,11 +161,6 @@ export default function Cheatsheet() {
     navigator.clipboard.writeText(code);
     setCopiedCode(code);
     setTimeout(() => setCopiedCode(''), 2000);
-  };
-
-
-  const escapeHTML = (str) => {
-    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   };
 
   return (
@@ -200,7 +191,7 @@ export default function Cheatsheet() {
                     <div className="flex justify-between items-start">
                       <code
                         className="block text-green-400 font-mono text-lg mb-1 break-all"
-                        dangerouslySetInnerHTML={{ __html: highlightMatch(escapeHTML(item.code)) }}
+                        dangerouslySetInnerHTML={{ __html: highlightMatch(item.code) }}
                       />
                       <button
                         onClick={() => copyToClipboard(item.code)}
@@ -208,7 +199,6 @@ export default function Cheatsheet() {
                       >
                         {copiedCode === item.code ? 'Copied' : 'Copy'}
                       </button>
-
                     </div>
                     <p
                       className="text-gray-400 text-sm"
