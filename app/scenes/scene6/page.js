@@ -38,7 +38,7 @@ function SceneObjects() {
 
       {/* A mesh with HTML tooltip */}
       <Html position={[-10, 4, 0]}>
-        <div className="bg-gray-500 w-fit text-black p-20 rounded">I'm in 3D!</div>
+        <div className="bg-gray-500 w-fit text-black p-20 rounded">I&apos;m in 3D!</div>
       </Html>
 
       {/* Cube */}

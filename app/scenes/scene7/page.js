@@ -7,16 +7,18 @@ import { PointLightHelper } from 'three';
 import { useHelper } from '@react-three/drei'; import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
 function EarthScene() {
+  const sunPosition = [120, 0, 0];  // Position of the sun
+  const earthPosition = [0, 0, 0]; // Position of Earth
   const sunRef = useRef();
   const earthRef = useRef();
   const moon1Ref = useRef();
   const moon2Ref = useRef();
+
   const light1Ref = useRef();
   const light2Ref = useRef();
   const light3Ref = useRef();
+
   const pointLightRef = useRef();
-  const sunPosition = [120, 0, 0];  // Position of the sun
-  const earthPosition = [0, 0, 0]; // Position of Earth
 
   const earthGroup = useRef();
 
