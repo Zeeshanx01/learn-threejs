@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Html,Text3D } from '@react-three/drei';
+import { OrbitControls, Html, Text3D } from '@react-three/drei';
 
 
 function SceneObjects() {
