@@ -9,8 +9,8 @@ import { useThree } from '@react-three/fiber';
 
 
 function EarthScene() {
-  const sunPosition = [120, 0, 0];  // Position of the sun
-  const earthPosition = [-120, 0, 0]; // Position of Earth
+  const sunPosition = [0, 0, 0];  // Position of the sun
+  const earthPosition = [-380, 0, -240]; // Position of Earth
   const sunRef = useRef();
   const earthRef = useRef();
   const moon1Ref = useRef();
@@ -58,18 +58,24 @@ function EarthScene() {
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
 
+    // Sun rotation
     if (sunRef.current) sunRef.current.rotation.y += 0.0003;
+
+    // Earth self rotation
     if (earthRef.current) earthRef.current.rotation.y += 0.002;
 
-    if (moon1Ref.current) {
-      moon1Ref.current.position.x = Math.sin(t) * 5;
-      moon1Ref.current.position.z = Math.cos(t) * 5;
-    }
-    if (moon2Ref.current) {
-      moon2Ref.current.position.x = Math.sin(-t * 1.5) * 7;
-      moon2Ref.current.position.z = Math.cos(-t * 1.5) * 7;
-    }
+    // Earth orbit around sun
+    if (earthGroup.current) earthGroup.current.rotation.y = t * 0.05;
+
+    // Moon 1 orbit around earth
+    if (moon1Ref.current) moon1Ref.current.rotation.y = t * 1;
+
+    // Moon 2 orbit around earth
+    if (moon2Ref.current) moon2Ref.current.rotation.y = -t * 1.5;
   });
+
+
+
 
 
 
@@ -131,32 +137,32 @@ function EarthScene() {
 
 
       <group ref={earthGroup} position={earthPosition}>
-
-
         {/* Earth */}
         <mesh
           ref={earthRef}
-          position={[0, 0, 0]}
           onClick={(e) => handleObjectClick(e.object)}
         >
           <sphereGeometry args={[2, 32, 32]} />
           <meshStandardMaterial map={earthTexture} />
         </mesh>
 
-        {/* Moon 1 */}
-        <mesh ref={moon1Ref} position={[5, 0, 0]}>
-          <sphereGeometry args={[0.5, 16, 16]} />
-          <meshStandardMaterial map={moonTexture} />
-        </mesh>
+        {/* Moon 1 Group */}
+        <group ref={moon1Ref}>
+          <mesh position={[5, 0, 0]}>
+            <sphereGeometry args={[0.5, 16, 16]} />
+            <meshStandardMaterial map={moonTexture} />
+          </mesh>
+        </group>
 
-        {/* Moon 2 */}
-        <mesh ref={moon2Ref} position={[7, 0, 0]}>
-          <sphereGeometry args={[0.3, 16, 16]} />
-          <meshStandardMaterial map={moonTexture2} />
-        </mesh>
+        {/* Moon 2 Group */}
+        <group ref={moon2Ref}>
+          <mesh position={[7, 0, 0]}>
+            <sphereGeometry args={[0.3, 16, 16]} />
+            <meshStandardMaterial map={moonTexture2} />
+          </mesh>
+        </group>
 
-
-        {/* Floating 3D Label */}
+        {/* Label */}
         <Text3D
           font="/fonts/helvetiker_regular.typeface.json"
           size={0.5}
@@ -166,15 +172,15 @@ function EarthScene() {
           Earth Scene
           <meshStandardMaterial color="white" />
         </Text3D>
-
       </group>
+
 
       {/* is it possible to finds the positon of point light like we done in directional light? */}
 
 
 
 
-      <group ref={sunGroup} position={[0, 0, 0]}>
+      <group ref={sunGroup} position={sunPosition}>
         {/* sun */}
         <mesh
           ref={sunRef}
@@ -193,7 +199,7 @@ function EarthScene() {
 
 
         <pointLight
-          position={sunPosition}
+          position={[120, 0, 0]}
           intensity={100}
           distance={1000}
           color="white"
@@ -204,8 +210,8 @@ function EarthScene() {
         {/* red */}
         <pointLight
           // position={[sunPosition[0] + 20, sunPosition[1] + 20, sunPosition[2] + 50]} 
-          position={[-300, 0, 0]}
-          ref={pointLightRef}
+          position={[-320, 0, 0]}
+          // ref={pointLightRef}
           intensity={100}
           distance={1000}
           color="white"
@@ -216,7 +222,7 @@ function EarthScene() {
         <pointLight
           // position={[sunPosition[0] + 20, sunPosition[1] + 20, sunPosition[2] + 50]} 
           position={[130, 0, 400]}
-          ref={pointLight2Ref}
+          // ref={pointLight2Ref}
           intensity={100}
           distance={1000}
           color="white"
@@ -226,8 +232,8 @@ function EarthScene() {
         {/* yellow */}
         <pointLight
           // position={[sunPosition[0] + 20, sunPosition[1] + 20, sunPosition[2] + 50]} 
-          position={[520, 0, 0]}
-          ref={pointLight3Ref}
+          position={[550, 0, 0]}
+          // ref={pointLight3Ref}
           intensity={100}
           distance={1000}
           color="white"
@@ -240,7 +246,7 @@ function EarthScene() {
         <pointLight
           // position={[sunPosition[0] + 20, sunPosition[1] + 20, sunPosition[2] + 50]} 
           position={[130, 0, -400]}
-          ref={pointLight4Ref}
+          // ref={pointLight4Ref}
           intensity={100}
           distance={1000}
           color="white"
@@ -254,7 +260,7 @@ function EarthScene() {
         <pointLight
           // position={[sunPosition[0] + 20, sunPosition[1] + 20, sunPosition[2] + 50]} 
           position={[130, 450, 0]}
-          ref={pointLight5Ref}
+          // ref={pointLight5Ref}
           intensity={100}
           distance={1000}
           color="white"
@@ -265,7 +271,7 @@ function EarthScene() {
         <pointLight
           // position={[sunPosition[0] + 20, sunPosition[1] + 20, sunPosition[2] + 50]} 
           position={[130, -450, 0]}
-          ref={pointLight6Ref}
+          // ref={pointLight6Ref}
           intensity={100}
           distance={1000}
           color="white"
@@ -289,7 +295,7 @@ function EarthScene() {
 
 
       {/* Lights */}
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={0.2} />
       {/* <directionalLight
         ref={light1Ref}
         position={sunPosition}
@@ -318,13 +324,17 @@ export default function Scene7() {
   return (
     <Canvas
       camera={{
-        position: [300, 5, 200],
+        position: [-470, 0, -350],
         fov: 60,
         near: 0.1,       // Keep as small as needed
         far: 100000      // 🔥 Increase this to see distant objects
       }}
       style={{ width: '100vw', height: '100vh', background: '#000' }}
       ref={cameraRef}
+      onCreated={({ camera }) => {
+        // ✅ Point camera to Earth (or any custom target)
+        camera.lookAt(-520, 0, 0);
+      }}
       gl={{ logarithmicDepthBuffer: true }}
     >
       {/* Background stars */}
