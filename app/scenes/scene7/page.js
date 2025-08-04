@@ -10,7 +10,7 @@ import { useThree } from '@react-three/fiber';
 
 function EarthScene() {
   const sunPosition = [0, 0, 0];  // Position of the sun
-  const earthPosition = [-380, 0, -240]; // Position of Earth
+  const earthPosition = [-480, 0, -340]; // Position of Earth
   const sunRef = useRef();
   const earthRef = useRef();
   const moon1Ref = useRef();
@@ -44,14 +44,14 @@ function EarthScene() {
   useHelper(pointLight6Ref, PointLightHelper, 10, 'pink');
 
   // Load Earth texture
-  const earthTexture = useLoader(THREE.TextureLoader, '/scene7/earth-day-8k.jpg');
+  const earthTexture = useLoader(THREE.TextureLoader, '/scene7/earth-day-2k.jpg');
 
-  const moonTexture = useLoader(THREE.TextureLoader, '/scene7/moon-8k.jpg');
+  const moonTexture = useLoader(THREE.TextureLoader, '/scene7/moon-2k.jpg');
 
   const moonTexture2 = useLoader(THREE.TextureLoader, '/scene7/makemake-2k.jpg');
 
 
-  const sunTexture = useLoader(THREE.TextureLoader, '/scene7/sun-8k.jpg');
+  const sunTexture = useLoader(THREE.TextureLoader, '/scene7/sun-2k.jpg');
 
 
   // Animate Earth rotation and moons
