@@ -12,6 +12,8 @@ const scenes = [
   { id: 5, name: 'Scene 5 - Split Viewport (Single Canvas)', path: '/scenes/scene5' },
   { id: 6, name: 'Scene 6 - Objects Playground (R3F)', path: '/scenes/scene6' },
   { id: 7, name: 'Scene 7 – Earth with Orbiting Moons', path: '/scenes/scene7' }, // ✅ Newly added
+  { id: 8, name: 'Scene 8 – Scroll Animations', path: '/scenes/scene8' }, // ✅ Newly added
+  { id: 9, name: 'Scene 9 – Play Canvas Game', path: '/scenes/scene9' }, // ✅ Newly added
 ];
 
 
