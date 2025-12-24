@@ -1,0 +1,1460 @@
+{
+  "name": "Main Scene",
+  "created": "2015-09-30T09:01:59.840Z",
+  "settings": {
+    "priority_scripts": [],
+    "physics": {
+      "gravity": [
+        0,
+        -9.8,
+        0
+      ]
+    },
+    "render": {
+      "fog_end": 1000,
+      "fog_start": 1,
+      "global_ambient": [
+        0.1568627450980392,
+        0.23529411764705882,
+        0.3137254901960784
+      ],
+      "tonemapping": 0,
+      "fog_color": [
+        0,
+        0,
+        0
+      ],
+      "fog": "none",
+      "skybox": null,
+      "fog_density": 0.01,
+      "gamma_correction": 1,
+      "exposure": 1.5,
+      "lightmapSizeMultiplier": 16,
+      "lightmapMaxResolution": 2048,
+      "lightmapMode": 0,
+      "skyboxIntensity": 1,
+      "skyboxMip": 0,
+      "skyboxRotation": [
+        0,
+        0,
+        0
+      ],
+      "lightmapFilterEnabled": false,
+      "lightmapFilterRange": 10,
+      "lightmapFilterSmoothness": 0.2,
+      "ambientBake": false,
+      "ambientBakeNumSamples": 1,
+      "ambientBakeSpherePart": 0.4,
+      "ambientBakeOcclusionBrightness": 0,
+      "ambientBakeOcclusionContrast": 0,
+      "clusteredLightingEnabled": true,
+      "lightingCells": [
+        10,
+        3,
+        10
+      ],
+      "lightingMaxLightsPerCell": 255,
+      "lightingCookieAtlasResolution": 2048,
+      "lightingShadowAtlasResolution": 2048,
+      "lightingShadowType": 0,
+      "lightingCookiesEnabled": false,
+      "lightingAreaLightsEnabled": false,
+      "lightingShadowsEnabled": true,
+      "skyType": "infinite",
+      "skyMeshPosition": [
+        0,
+        0,
+        0
+      ],
+      "skyMeshRotation": [
+        0,
+        0,
+        0
+      ],
+      "skyMeshScale": [
+        100,
+        100,
+        100
+      ],
+      "skyCenter": [
+        0,
+        0.1,
+        0
+      ]
+    }
+  },
+  "entities": {
+    "e8ae4254-6751-11e5-bd2a-8438356164ca": {
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "name": "Scene",
+      "parent": null,
+      "resource_id": "e8ae4254-6751-11e5-bd2a-8438356164ca",
+      "labels": [],
+      "enabled": true,
+      "components": {
+        "pack": {}
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "e8ae4acf-6751-11e5-8a1b-8438356164ca",
+        "d1754324-986c-4179-916d-3ab7daad83f7",
+        "a30e3c6a-b996-4956-adf4-b3ab6f221cc7",
+        "e8ae461c-6751-11e5-b2b0-8438356164ca",
+        "ebe732ba-cbfc-46af-b12c-926beba7deef",
+        "7bbd3584-29da-485b-a146-248662d1b259"
+      ],
+      "template": null,
+      "tags": []
+    },
+    "e8ae4acf-6751-11e5-8a1b-8438356164ca": {
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "name": "Camera",
+      "parent": "e8ae4254-6751-11e5-bd2a-8438356164ca",
+      "resource_id": "e8ae4acf-6751-11e5-8a1b-8438356164ca",
+      "labels": [],
+      "enabled": true,
+      "components": {
+        "camera": {
+          "orthoHeight": 100,
+          "offscreen": false,
+          "clearDepthBuffer": true,
+          "projection": 0,
+          "clearColor": [
+            0.1568627450980392,
+            0.23529411764705882,
+            0.3137254901960784,
+            1
+          ],
+          "enabled": true,
+          "fov": 45,
+          "priority": 0,
+          "farClip": 1000,
+          "nearClip": 0.3,
+          "rect": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "clearColorBuffer": true,
+          "frustumCulling": false,
+          "layers": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "gammaCorrection": 1,
+          "toneMapping": 0
+        },
+        "script": {
+          "enabled": true,
+          "order": [
+            "followCamera"
+          ],
+          "scripts": {
+            "followCamera": {
+              "enabled": true,
+              "attributes": {
+                "target": null,
+                "distance": 4
+              }
+            }
+          }
+        }
+      },
+      "position": [
+        6.080631700933418,
+        3.7262294870196184,
+        0.4762551881617866
+      ],
+      "rotation": [
+        -26.599994823180495,
+        85.60000025958092,
+        0.000002266851627615369
+      ],
+      "children": [],
+      "template": null,
+      "tags": []
+    },
+    "d1754324-986c-4179-916d-3ab7daad83f7": {
+      "name": "Light",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "d1754324-986c-4179-916d-3ab7daad83f7",
+      "parent": "e8ae4254-6751-11e5-bd2a-8438356164ca",
+      "children": [],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        49.999999092251635,
+        29.99999987923132,
+        34.99999910252564
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "light": {
+          "enabled": true,
+          "type": "directional",
+          "bake": false,
+          "bakeArea": 0,
+          "bakeNumSamples": 1,
+          "bakeDir": true,
+          "affectDynamic": true,
+          "affectLightmapped": false,
+          "affectSpecularity": true,
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "intensity": 1,
+          "castShadows": true,
+          "shadowUpdateMode": 2,
+          "shadowType": 0,
+          "vsmBlurMode": 1,
+          "vsmBlurSize": 11,
+          "vsmBias": 0.01,
+          "shadowDistance": 16,
+          "shadowIntensity": 0.75,
+          "shadowResolution": 2048,
+          "numCascades": 1,
+          "cascadeDistribution": 0.5,
+          "shadowBias": 0.2,
+          "normalOffsetBias": 0.05,
+          "range": 8,
+          "falloffMode": 0,
+          "innerConeAngle": 40,
+          "outerConeAngle": 45,
+          "shape": 0,
+          "cookieAsset": null,
+          "cookieIntensity": 1,
+          "cookieFalloff": true,
+          "cookieChannel": "rgb",
+          "cookieAngle": 0,
+          "cookieScale": [
+            1,
+            1
+          ],
+          "cookieOffset": [
+            0,
+            0
+          ],
+          "isStatic": false,
+          "layers": [
+            0
+          ]
+        }
+      }
+    },
+    "e8ae461c-6751-11e5-b2b0-8438356164ca": {
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "name": "Platforms",
+      "parent": "e8ae4254-6751-11e5-bd2a-8438356164ca",
+      "resource_id": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "enabled": true,
+      "components": {},
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "e8ae53fa-6751-11e5-a1e8-8438356164ca",
+        "406ba39c-b107-437d-b991-4ffa942e59d7",
+        "43fef85d-f08a-458e-ba28-ac2cd05312d6",
+        "055dc82d-4d83-462e-b0c2-fc5cebf6e6b2",
+        "90f89c7d-5e6d-4d29-b4e4-d726a33f016e",
+        "a1be491d-4b93-4cd9-92f6-0ebf814bbab9",
+        "629ca503-0b22-4433-b60b-e0c8ed1afd6b",
+        "13bdeb08-a3c1-4e69-9551-343c8bb3deed"
+      ],
+      "tags": []
+    },
+    "e8ae53fa-6751-11e5-a1e8-8438356164ca": {
+      "scale": [
+        0.5,
+        0.05,
+        0.5
+      ],
+      "name": "Start",
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "resource_id": "e8ae53fa-6751-11e5-a1e8-8438356164ca",
+      "enabled": true,
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "cylinder",
+          "asset": null,
+          "materialAssets": [
+            244214030
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        }
+      },
+      "position": [
+        0,
+        0.125,
+        3
+      ],
+      "rotation": [
+        180,
+        1.4033419209422001e-14,
+        180
+      ],
+      "children": [],
+      "tags": []
+    },
+    "406ba39c-b107-437d-b991-4ffa942e59d7": {
+      "name": "Arrow",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "406ba39c-b107-437d-b991-4ffa942e59d7",
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "children": [],
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214028,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214028,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "template_id": 244214036,
+      "template_ent_ids": {
+        "406ba39c-b107-437d-b991-4ffa942e59d7": "3ec0ff2a-d6d0-4bfa-adc8-08e16893e2cc"
+      }
+    },
+    "43fef85d-f08a-458e-ba28-ac2cd05312d6": {
+      "enabled": true,
+      "tags": [],
+      "children": [],
+      "position": [
+        0,
+        0.2688445168799565,
+        1.8004839420318604
+      ],
+      "rotation": [
+        17.6,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "resource_id": "43fef85d-f08a-458e-ba28-ac2cd05312d6",
+      "name": "Square",
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214042,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214042,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "template_ent_ids": {
+        "43fef85d-f08a-458e-ba28-ac2cd05312d6": "bddb7bd5-ae74-4a0a-9826-91b660b6b713"
+      },
+      "template_id": 244214041
+    },
+    "055dc82d-4d83-462e-b0c2-fc5cebf6e6b2": {
+      "enabled": true,
+      "tags": [],
+      "children": [],
+      "position": [
+        0,
+        0.784327178755738,
+        0.7296600341796875
+      ],
+      "rotation": [
+        33.6,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "resource_id": "055dc82d-4d83-462e-b0c2-fc5cebf6e6b2",
+      "name": "Square",
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214042,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214042,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "template_ent_ids": {
+        "055dc82d-4d83-462e-b0c2-fc5cebf6e6b2": "bddb7bd5-ae74-4a0a-9826-91b660b6b713"
+      },
+      "template_id": 244214041
+    },
+    "90f89c7d-5e6d-4d29-b4e4-d726a33f016e": {
+      "name": "Square",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "90f89c7d-5e6d-4d29-b4e4-d726a33f016e",
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "children": [],
+      "position": [
+        0,
+        0.8932502047336752,
+        -0.18885238468647003
+      ],
+      "rotation": [
+        -8.9,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214042,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214042,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "template_id": 244214041,
+      "template_ent_ids": {
+        "90f89c7d-5e6d-4d29-b4e4-d726a33f016e": "bddb7bd5-ae74-4a0a-9826-91b660b6b713"
+      }
+    },
+    "629ca503-0b22-4433-b60b-e0c8ed1afd6b": {
+      "enabled": true,
+      "tags": [],
+      "children": [],
+      "position": [
+        0,
+        0,
+        -3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "resource_id": "629ca503-0b22-4433-b60b-e0c8ed1afd6b",
+      "name": "Arrow",
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214028,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214028,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "template_ent_ids": {
+        "629ca503-0b22-4433-b60b-e0c8ed1afd6b": "3ec0ff2a-d6d0-4bfa-adc8-08e16893e2cc"
+      },
+      "template_id": 244214036
+    },
+    "13bdeb08-a3c1-4e69-9551-343c8bb3deed": {
+      "scale": [
+        0.5,
+        0.05,
+        0.5
+      ],
+      "name": "Teleporter",
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "resource_id": "13bdeb08-a3c1-4e69-9551-343c8bb3deed",
+      "enabled": true,
+      "components": {
+        "collision": {
+          "enabled": true,
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "height": 0.25,
+          "radius": 0.25,
+          "asset": null,
+          "type": "cylinder",
+          "axis": 1,
+          "renderAsset": null,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "script": {
+          "enabled": true,
+          "order": [
+            "teleporter"
+          ],
+          "scripts": {
+            "teleporter": {
+              "enabled": true,
+              "attributes": {
+                "target": "e8ae53fa-6751-11e5-a1e8-8438356164ca"
+              }
+            }
+          }
+        },
+        "render": {
+          "enabled": true,
+          "type": "cylinder",
+          "asset": null,
+          "materialAssets": [
+            244214029
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        }
+      },
+      "position": [
+        0,
+        0.125,
+        -3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "children": [],
+      "tags": []
+    },
+    "7bbd3584-29da-485b-a146-248662d1b259": {
+      "name": "2D Screen",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "7bbd3584-29da-485b-a146-248662d1b259",
+      "parent": "e8ae4254-6751-11e5-bd2a-8438356164ca",
+      "children": [
+        "816bc31d-4699-4bf2-9ea6-a9ef5f9ace07"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "screen": {
+          "enabled": true,
+          "screenSpace": true,
+          "scaleMode": "blend",
+          "scaleBlend": 0.5,
+          "resolution": [
+            1280,
+            720
+          ],
+          "referenceResolution": [
+            1280,
+            720
+          ],
+          "priority": 0
+        }
+      }
+    },
+    "816bc31d-4699-4bf2-9ea6-a9ef5f9ace07": {
+      "name": "Help Text",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "816bc31d-4699-4bf2-9ea6-a9ef5f9ace07",
+      "parent": "7bbd3584-29da-485b-a146-248662d1b259",
+      "children": [],
+      "position": [
+        0,
+        10,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "element": {
+          "enabled": true,
+          "type": "text",
+          "anchor": [
+            0.5,
+            0,
+            0.5,
+            0
+          ],
+          "pivot": [
+            0.5,
+            0
+          ],
+          "text": "Use WASD or arrow keys to control the ball",
+          "key": null,
+          "fontAsset": 244214050,
+          "fontSize": 20,
+          "minFontSize": 8,
+          "maxFontSize": 32,
+          "autoFitWidth": false,
+          "autoFitHeight": false,
+          "maxLines": null,
+          "lineHeight": 32,
+          "wrapLines": true,
+          "spacing": 1,
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "opacity": 1,
+          "textureAsset": null,
+          "spriteAsset": null,
+          "spriteFrame": 0,
+          "pixelsPerUnit": null,
+          "width": 308.664,
+          "height": 16.867,
+          "margin": [
+            -154.332,
+            10,
+            -154.332,
+            -26.867
+          ],
+          "alignment": [
+            0.5,
+            0.5
+          ],
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineThickness": 0,
+          "shadowColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "shadowOffset": [
+            0,
+            0
+          ],
+          "rect": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "materialAsset": null,
+          "autoWidth": true,
+          "autoHeight": true,
+          "fitMode": "stretch",
+          "useInput": false,
+          "batchGroupId": null,
+          "mask": false,
+          "layers": [
+            4
+          ],
+          "enableMarkup": false
+        }
+      }
+    },
+    "a30e3c6a-b996-4956-adf4-b3ab6f221cc7": {
+      "name": "Ball",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "a30e3c6a-b996-4956-adf4-b3ab6f221cc7",
+      "parent": "e8ae4254-6751-11e5-bd2a-8438356164ca",
+      "children": [],
+      "position": [
+        0,
+        0.5,
+        -2.8859448005615853
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "sphere",
+          "asset": null,
+          "materialAssets": [
+            244214024
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "script": {
+          "enabled": true,
+          "order": [
+            "movement"
+          ],
+          "scripts": {
+            "movement": {
+              "enabled": true,
+              "attributes": {
+                "speed": 0.1
+              }
+            }
+          }
+        },
+        "collision": {
+          "enabled": true,
+          "type": "sphere",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.25,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": null,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "dynamic",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 1
+        }
+      }
+    },
+    "a1be491d-4b93-4cd9-92f6-0ebf814bbab9": {
+      "name": "Square",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "a1be491d-4b93-4cd9-92f6-0ebf814bbab9",
+      "parent": "e8ae461c-6751-11e5-b2b0-8438356164ca",
+      "children": [],
+      "position": [
+        0,
+        0.570604681968689,
+        -1.2625752687454224
+      ],
+      "rotation": [
+        -17.79999997787648,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214042,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214042,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "template_id": 244214041,
+      "template_ent_ids": {
+        "a1be491d-4b93-4cd9-92f6-0ebf814bbab9": "bddb7bd5-ae74-4a0a-9826-91b660b6b713"
+      }
+    },
+    "ebe732ba-cbfc-46af-b12c-926beba7deef": {
+      "name": "Square",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "ebe732ba-cbfc-46af-b12c-926beba7deef",
+      "parent": "e8ae4254-6751-11e5-bd2a-8438356164ca",
+      "children": [
+        "c4897cc1-abb6-4082-9678-8c9cc0b92b1d"
+      ],
+      "position": [
+        -0.5093833804130554,
+        0.5164124369621277,
+        -3.163794994354248
+      ],
+      "rotation": [
+        89.99999999999996,
+        44.75000083337932,
+        -4.478485246942786e-15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214042,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214042,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "template_id": 244214041,
+      "template_ent_ids": {
+        "ebe732ba-cbfc-46af-b12c-926beba7deef": "bddb7bd5-ae74-4a0a-9826-91b660b6b713"
+      }
+    },
+    "c4897cc1-abb6-4082-9678-8c9cc0b92b1d": {
+      "name": "Square",
+      "tags": [],
+      "enabled": true,
+      "resource_id": "c4897cc1-abb6-4082-9678-8c9cc0b92b1d",
+      "parent": "ebe732ba-cbfc-46af-b12c-926beba7deef",
+      "children": [],
+      "position": [
+        0.6276533218179203,
+        0.6067267732094594,
+        0.001711760333293233
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.85
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "components": {
+        "render": {
+          "enabled": true,
+          "type": "asset",
+          "asset": 244214042,
+          "materialAssets": [
+            244214032
+          ],
+          "layers": [
+            0
+          ],
+          "batchGroupId": null,
+          "castShadows": true,
+          "castShadowsLightmap": true,
+          "receiveShadows": true,
+          "lightmapped": false,
+          "lightmapSizeMultiplier": 1,
+          "castShadowsLightMap": true,
+          "lightMapped": false,
+          "lightMapSizeMultiplier": 1,
+          "isStatic": false,
+          "rootBone": null
+        },
+        "collision": {
+          "enabled": true,
+          "type": "mesh",
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "radius": 0.5,
+          "axis": 1,
+          "height": 2,
+          "convexHull": false,
+          "asset": null,
+          "renderAsset": 244214042,
+          "linearOffset": [
+            0,
+            0,
+            0
+          ],
+          "angularOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rigidbody": {
+          "enabled": true,
+          "type": "static",
+          "mass": 1,
+          "linearDamping": 0,
+          "angularDamping": 0,
+          "linearFactor": [
+            1,
+            1,
+            1
+          ],
+          "angularFactor": [
+            1,
+            1,
+            1
+          ],
+          "friction": 0.5,
+          "restitution": 0.5
+        }
+      },
+      "template_id": 244214041,
+      "template_ent_ids": {
+        "c4897cc1-abb6-4082-9678-8c9cc0b92b1d": "bddb7bd5-ae74-4a0a-9826-91b660b6b713"
+      }
+    }
+  },
+  "checkpoint_id": "1602e7ad-1ec4-4d15-894e-6fc8a39fff93",
+  "branch_id": "21137480-fe62-4d71-866a-c39c3f2df59b",
+  "id": 2293914
+}
